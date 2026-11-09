@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "execute_readonly_sql",
+  "description": "Ejecuta consultas SQL de solo lectura (SELECT) en la base de datos conectada con límite de filas forzado.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "string",
+        "description": "Sentencia SQL SELECT válida. Sentencias DROP, DELETE, INSERT o UPDATE serán rechazadas."
+      },
+      "max_rows": {
+        "type": "integer",
+        "description": "Límite máximo de filas devueltas.",
+        "default": 100
+      }
+    },
+    "required": ["query"]
+  }
+}

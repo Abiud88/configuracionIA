@@ -1,5 +1,11 @@
 {
   "mcpServers": {
+    "universal-ai-toolkit": {
+      "command": "python",
+      "args": [
+        "tools/mcp-servers/core_mcp_server.py"
+      ]
+    },
     "system-diagnostics": {
       "command": "python",
       "args": [

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "calculate_token_cost",
+  "description": "Calcula el número de tokens y el desglose de coste en USD para múltiples modelos de lenguaje (GPT-4o, Claude 3.5, Gemini 1.5, DeepSeek).",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "text": {
+        "type": "string",
+        "description": "El texto, prompt o documento cuyo consumo se desea medir."
+      },
+      "estimated_output_ratio": {
+        "type": "number",
+        "description": "Porcentaje estimado de la respuesta respecto al total (por defecto 0.3 = 30%).",
+        "default": 0.3
+      }
+    },
+    "required": ["text"]
+  }
+}

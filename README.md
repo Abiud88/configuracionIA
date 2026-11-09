@@ -20,12 +20,38 @@ configuracionIA/
 │   ├── documentation/      # Documentación técnica, técnica Feynman y changelogs
 │   ├── ai-data/            # Expresiones regulares, análisis EDA y ciencia de datos
 │   └── general/            # Optimizador avanzado de prompts
-├── tools/                  # Herramientas ejecutables
+├── tools/                  # Herramientas ejecutables en código
 │   ├── mcp-servers/        # Servidores compatibles con Model Context Protocol (FastMCP)
 │   └── scripts/            # Scripts utilitarios ejecutables (Python, Bash, etc.)
 ├── schemas/                # Schemas universales JSON para Function Calling directo
 └── configs/                # Conectores listos para Claude Desktop, Antigravity, etc.
 ```
+
+---
+
+## 🛠️ Herramientas Ejecutables (Tools & MCP)
+
+| Herramienta | Tipo | Descripción | Archivo |
+| :--- | :--- | :--- | :--- |
+| **Core MCP Server** | Servidor MCP | Expone herramientas de escaneo de secretos, tokens y compresión a clientes MCP. | [`core_mcp_server.py`](tools/mcp-servers/core_mcp_server.py) |
+| **Token & Cost Counter** | Script Python | Estimación precisa de BPE tokens y desglose de costes en USD para GPT-4o, Claude, Gemini y DeepSeek. | [`token_counter.py`](tools/scripts/token_counter.py) |
+| **Secret Scanner** | Script Python | Escáner de seguridad que detecta API Keys expuestas (OpenAI, AWS, GitHub, JWT, etc.). | [`secret_scanner.py`](tools/scripts/secret_scanner.py) |
+| **JSON to Markdown** | Script Python | Transforma arrays JSON en tablas Markdown compactas, ahorrando hasta un 60% de tokens. | [`json_to_markdown.py`](tools/scripts/json_to_markdown.py) |
+| **System Info** | Script Python | Diagnóstico del entorno del sistema operativo, CPU y Python. | [`system_info.py`](tools/scripts/system_info.py) |
+
+---
+
+## 📋 Schemas Universales de Function Calling (`schemas/`)
+
+Compatibles con APIs de OpenAI, Gemini, Claude, Mistral y Ollama local:
+
+| Schema | Función | Propósito |
+| :--- | :--- | :--- |
+| [`secret-scanner-tool.json`](schemas/secret-scanner-tool.json) | `scan_secrets_and_credentials` | Audita código y texto para prevenir fugas de credenciales. |
+| [`token-calculator-tool.json`](schemas/token-calculator-tool.json) | `calculate_token_cost` | Calcula costes de inferencia antes de procesar grandes prompts. |
+| [`database-query-tool.json`](schemas/database-query-tool.json) | `execute_readonly_sql` | Ejecuta consultas SQL SELECT seguras con límites de filas. |
+| [`web-scraper-tool.json`](schemas/web-scraper-tool.json) | `extract_web_markdown` | Convierte URLs en Markdown limpio sin publicidad ni scripts. |
+| [`weather-tool.json`](schemas/weather-tool.json) | `get_current_weather` | Ejemplo estándar de pronóstico meteorológico. |
 
 ---
 
@@ -95,8 +121,8 @@ configuracionIA/
 
 ---
 
-## 🎯 ¿Cómo utilizar estas skills en tu día a día?
+## 🎯 ¿Cómo utilizar estas herramientas y skills?
 
-1. **En ChatGPT / Claude.ai / Gemini Web:** Abre el archivo de la skill que necesites, copia su contenido y pégalo como primer mensaje (o agrégalo en tus *Custom Instructions / Instrucciones Personalizadas*).
-2. **En Agentes (Antigravity, Cursor, Claude Code):** Mantén este repositorio abierto o copia la carpeta `skills/` en tus proyectos de trabajo.
-3. **Para crear tus propias skills:** Copia [`skills/templates/SKILL_TEMPLATE.md`](skills/templates/SKILL_TEMPLATE.md), completa los campos YAML y añade tu procedimiento paso a paso.
+1. **Scripts Directos:** Ejecuta cualquier herramienta desde tu terminal (`python tools/scripts/secret_scanner.py .` o `python tools/scripts/token_counter.py`).
+2. **Servidor MCP:** Configura tu cliente (Claude Desktop o Antigravity) apuntando a `configs/claude_desktop_config.json` o `configs/antigravity_mcp_config.json`.
+3. **Function Calling:** Copia los esquemas de `schemas/` en tus llamadas de API a OpenAI, Gemini, Claude u Ollama.

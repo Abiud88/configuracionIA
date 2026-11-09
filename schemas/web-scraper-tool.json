@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "extract_web_markdown",
+  "description": "Descarga una URL pública y convierte su contenido principal en Markdown limpio, eliminando cabeceras, anuncios y scripts.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "url": {
+        "type": "string",
+        "description": "La dirección web HTTP o HTTPS a procesar."
+      },
+      "max_length": {
+        "type": "integer",
+        "description": "Longitud máxima en caracteres del contenido extraído.",
+        "default": 10000
+      }
+    },
+    "required": ["url"]
+  }
+}
