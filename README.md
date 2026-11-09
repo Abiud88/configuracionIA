@@ -1,64 +1,77 @@
 # 🧠 Configuración IA (Universal Skills & Tools)
 
-Repositorio centralizado y agnóstico para almacenar **Habilidades (Skills)** y **Herramientas (Tools / MCP)** compatibles con cualquier modelo de lenguaje e IA (Claude, ChatGPT / GPT-4o, Google Gemini, Antigravity, Cursor, Ollama, DeepSeek, etc.).
+Repositorio centralizado, agnóstico y estandarizado para almacenar **Habilidades (Skills)** y **Herramientas (Tools / MCP)** compatibles con cualquier modelo de lenguaje grande (Claude, ChatGPT, Gemini, Antigravity, Cursor, Ollama, DeepSeek, Mistral, etc.).
 
 ---
 
-## 📂 Estructura del Repositorio
+## 📂 Arquitectura del Repositorio
 
 ```text
 configuracionIA/
-├── .github/workflows/      # Validaciones automáticas de sintaxis
-├── skills/                 # Conocimiento procedimental y prompts estructurados
-│   ├── templates/          # Plantilla oficial para crear nuevas skills
-│   ├── coding/             # Skills orientadas a desarrollo y programación
-│   └── general/            # Skills de propósito general y productividad
+├── .github/workflows/      # Validaciones automáticas (CI/CD)
+├── skills/                 # Catálogo universal de habilidades operativas
+│   ├── templates/          # Plantilla oficial estándar (SKILL_TEMPLATE.md)
+│   ├── core/               # Razonamiento metacognitivo, control y anti-alucinaciones
+│   ├── coding/             # Desarrollo de software, arquitectura, refactor y testing
+│   ├── devops/             # Git, terminal seguro, Docker y pipelines CI/CD
+│   ├── documentation/      # Documentación técnica, técnica Feynman y changelogs
+│   ├── ai-data/            # Expresiones regulares, análisis EDA y ciencia de datos
+│   └── general/            # Optimizador avanzado de prompts
 ├── tools/                  # Herramientas ejecutables
-│   ├── mcp-servers/        # Servidores compatibles con Model Context Protocol
+│   ├── mcp-servers/        # Servidores compatibles con Model Context Protocol (FastMCP)
 │   └── scripts/            # Scripts utilitarios ejecutables (Python, Bash, etc.)
-├── schemas/                # Schemas universales JSON para Function Calling
-└── configs/                # Plantillas de configuración para diferentes clientes
+├── schemas/                # Schemas universales JSON para Function Calling directo
+└── configs/                # Conectores listos para Claude Desktop, Antigravity, etc.
 ```
 
 ---
 
-## 🎯 ¿Cómo usar este repositorio?
+## 📚 Catálogo Completo de Skills
 
-### 1. En Interfaces Web (ChatGPT, Claude.ai, Gemini, etc.)
-- Ve a la carpeta `skills/` y abre la habilidad que te interese (por ejemplo: [`skills/coding/code-reviewer/SKILL.md`](skills/coding/code-reviewer/SKILL.md)).
-- Copia el contenido del archivo y pégalo al inicio de tu conversación o guárdalo como **Instrucción Personalizada / Custom GPT**.
-
-### 2. En Agentes de Código (Google Antigravity, Cursor, Windsurf, Claude Code)
-- Clona este repositorio o copia la carpeta `skills/` dentro de tu proyecto.
-- Los agentes con soporte para archivos de contexto pueden leer directamente los archivos `SKILL.md` bajo demanda cuando se mencione una tarea relacionada.
-
-### 3. En Herramientas con Model Context Protocol (MCP)
-- Consulta la carpeta [`configs/`](configs/) para ver cómo registrar servidores y herramientas en aplicaciones como Claude Desktop o Antigravity.
-
----
-
-## 📚 Catálogo de Skills
-
-| Skill | Categoría | Descripción | Archivo |
-| :--- | :--- | :--- | :--- |
-| **Code Reviewer** | Coding | Revisión exhaustiva de código, detección de vulnerabilidades y optimizaciones. | [`SKILL.md`](skills/coding/code-reviewer/SKILL.md) |
-| **Prompt Enhancer** | General | Mejora y refina prompts de usuario usando técnicas avanzadas (Few-Shot, Chain-of-Thought). | [`SKILL.md`](skills/general/prompt-enhancer/SKILL.md) |
-
----
-
-## 🛠️ Herramientas y Schemas
-
-| Herramienta | Tipo | Descripción |
+### 🧠 1. Razonamiento y Control (Core)
+| Skill | Descripción | Archivo |
 | :--- | :--- | :--- |
-| **System Info** | Script Python | Script CLI para obtener diagnósticos rápidos del entorno. |
-| **Weather Tool** | Schema JSON | Ejemplo estándar de Function Calling compatible con OpenAI, Gemini y Ollama. |
+| **First-Principles Reasoning** | Descompone problemas complejos en axiomas fundamentales antes de diseñar soluciones. | [`SKILL.md`](skills/core/first-principles-reasoning/SKILL.md) |
+| **Fact-Checker Skeptic** | Audita afirmaciones, versiones y referencias con escala de certeza epistémica para erradicar alucinaciones. | [`SKILL.md`](skills/core/fact-checker-skeptic/SKILL.md) |
+| **Decision Matrix Analyzer** | Evaluación numérica de tradeoffs, alternativas técnicas y matrices de decisión ponderadas. | [`SKILL.md`](skills/core/decision-matrix-analyzer/SKILL.md) |
+
+### 💻 2. Desarrollo de Software y Arquitectura (Coding)
+| Skill | Descripción | Archivo |
+| :--- | :--- | :--- |
+| **Code Reviewer** | Auditoría integral de código: fallos de lógica, seguridad, buenas prácticas y refactorización limpia. | [`SKILL.md`](skills/coding/code-reviewer/SKILL.md) |
+| **Systematic Debugger** | Depuración metódica basada en hipótesis, aislamiento de fallos y análisis de causa raíz. | [`SKILL.md`](skills/coding/systematic-debugger/SKILL.md) |
+| **Test-Driven Development** | Creación de suites de pruebas unitarias (Arrange-Act-Assert) cubriendo happy paths y edge cases. | [`SKILL.md`](skills/coding/test-driven-development/SKILL.md) |
+| **Software Architect** | Diseño estructural, patrones GoF, principios SOLID y arquitectura limpia (Hexagonal/Clean). | [`SKILL.md`](skills/coding/software-architect/SKILL.md) |
+| **API Designer OpenAPI** | Contratos de API RESTful con verbos semánticos, errores RFC 7807 y especificación OpenAPI 3.1. | [`SKILL.md`](skills/coding/api-designer-openapi/SKILL.md) |
+| **SQL Performance Optimizer** | Optimización de consultas SQL, análisis de planes de ejecución y recomendaciones de índices compuestos. | [`SKILL.md`](skills/coding/sql-performance-optimizer/SKILL.md) |
+| **Security Hardener (OWASP)** | Detección de brechas críticas (Inyecciones, IDOR, fugas de secretos) y sanitización defensiva. | [`SKILL.md`](skills/coding/security-hardener-owasp/SKILL.md) |
+
+### 🐙 3. DevOps, Git y Terminal
+| Skill | Descripción | Archivo |
+| :--- | :--- | :--- |
+| **Git Workflow Master** | Commits semánticos (Conventional Commits), plantillas de Pull Request y resolución de conflictos. | [`SKILL.md`](skills/devops/git-workflow-master/SKILL.md) |
+| **Safe Terminal Operator** | Comandos de consola con clasificación de riesgo (🟢/🟡/🔴), desglose de flags y prevención de desastres. | [`SKILL.md`](skills/devops/safe-terminal-operator/SKILL.md) |
+| **Docker Containerizer** | Multi-stage builds, imágenes ligeras (alpine/distroless), usuarios no-root y docker-compose. | [`SKILL.md`](skills/devops/docker-containerizer/SKILL.md) |
+| **CI/CD Pipeline Builder** | Flujos de automatización para GitHub Actions / GitLab CI con caché, linting y pruebas automáticas. | [`SKILL.md`](skills/devops/ci-cd-pipeline-builder/SKILL.md) |
+
+### 📝 4. Documentación y Pedagogía
+| Skill | Descripción | Archivo |
+| :--- | :--- | :--- |
+| **Tech Docs Writer** | Creación de READMEs de nivel profesional con diagramas Mermaid interactivos y guías de uso. | [`SKILL.md`](skills/documentation/tech-docs-writer/SKILL.md) |
+| **Feynman Explainer** | Explica conceptos altamente complejos mediante analogías cotidianas y eliminación de jerga técnica. | [`SKILL.md`](skills/documentation/feynman-explainer/SKILL.md) |
+| **Release Notes Generator** | Transforma commits o diffs en notas de lanzamiento bajo el estándar Keep a Changelog y SemVer. | [`SKILL.md`](skills/documentation/release-notes-generator/SKILL.md) |
+
+### 📊 5. Datos e Inteligencia Artificial
+| Skill | Descripción | Archivo |
+| :--- | :--- | :--- |
+| **Data Analysis & EDA** | Análisis exploratorio con Pandas/Polars: detección de outliers, correlaciones y visualizaciones. | [`SKILL.md`](skills/ai-data/data-analysis-eda/SKILL.md) |
+| **Regex Wizard** | Expresiones regulares de alta precisión con desglose anatómico, tests y prevención de ReDoS. | [`SKILL.md`](skills/ai-data/regex-wizard/SKILL.md) |
+| **Prompt Enhancer** | Refactorización de instrucciones mediante ingeniería de prompts (Few-Shot, CoT y Delimitadores). | [`SKILL.md`](skills/general/prompt-enhancer/SKILL.md) |
 
 ---
 
-## ✍️ Cómo añadir una nueva Skill
+## 🎯 ¿Cómo utilizar estas skills en tu día a día?
 
-1. Copia el archivo [`skills/templates/SKILL_TEMPLATE.md`](skills/templates/SKILL_TEMPLATE.md).
-2. Crea una carpeta dentro de `skills/<categoria>/<nombre-de-tu-skill>/`.
-3. Pega la plantilla y renómbrala como `SKILL.md`.
-4. Rellena los metadatos YAML superiores y las instrucciones en Markdown.
-5. Haz commit y push a GitHub.
+1. **En ChatGPT / Claude.ai / Gemini Web:** Abre el archivo de la skill que necesites, copia su contenido y pégalo como primer mensaje (o agrégalo en las *Custom Instructions / Instrucciones Personalizadas*).
+2. **En Agentes (Antigravity, Cursor, Claude Code):** Simplemente mantén abierto este repositorio o copia la carpeta `skills/` en tus proyectos de trabajo.
+3. **Para crear tus propias skills:** Copia [`skills/templates/SKILL_TEMPLATE.md`](skills/templates/SKILL_TEMPLATE.md), completa los campos YAML y añade tu procedimiento paso a paso.
