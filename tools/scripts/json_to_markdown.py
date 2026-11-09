@@ -5,6 +5,7 @@ reduciendo drásticamente el consumo de tokens al alimentar un LLM con datos.
 """
 
 import sys
+import os
 import json
 
 def json_to_markdown_table(data) -> str:
@@ -15,7 +16,6 @@ def json_to_markdown_table(data) -> str:
             return "Error: JSON inválido"
 
     if isinstance(data, dict):
-        # Convertir diccionario simple en tabla clave-valor
         lines = ["| Clave | Valor |", "| :--- | :--- |"]
         for k, v in data.items():
             val_str = json.dumps(v, ensure_ascii=False) if isinstance(v, (dict, list)) else str(v)
@@ -23,7 +23,6 @@ def json_to_markdown_table(data) -> str:
         return "\n".join(lines)
 
     elif isinstance(data, list) and len(data) > 0 and isinstance(data[0], dict):
-        # Extraer todas las columnas únicas
         headers = []
         for item in data:
             for k in item.keys():
@@ -48,5 +47,14 @@ def json_to_markdown_table(data) -> str:
     return str(data)
 
 if __name__ == "__main__":
-    raw_input = sys.stdin.read() if not sys.stdin.isatty() else '[{"id": 1, "nombre": "Admin", "rol": "superadmin"}, {"id": 2, "nombre": "Dev", "rol": "editor"}]'
+    if len(sys.argv) > 1:
+        arg = sys.argv[1]
+        if os.path.isfile(arg):
+            with open(arg, "r", encoding="utf-8") as f:
+                raw_input = f.read()
+        else:
+            raw_input = arg
+    else:
+        raw_input = '[{"id": 101, "servicio": "Auth Service", "estado": "Activo", "latencia_ms": 42}, {"id": 102, "servicio": "Payment Gateway", "estado": "Degradado", "latencia_ms": 320}]'
+    
     print(json_to_markdown_table(raw_input))

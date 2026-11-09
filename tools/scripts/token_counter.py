@@ -5,10 +5,10 @@ para los principales modelos de IA (OpenAI, Anthropic, Google Gemini, DeepSeek).
 """
 
 import sys
+import os
 import json
 import math
 
-# Precios por millón de tokens (Input / Output en USD)
 MODEL_PRICING = {
     "gemini-1.5-flash": {"input": 0.075, "output": 0.30},
     "gemini-1.5-pro": {"input": 1.25, "output": 5.00},
@@ -25,7 +25,6 @@ def estimate_tokens(text: str) -> int:
         return 0
     words = len(text.split())
     chars = len(text)
-    # Heurística empírica (~4 caracteres por token en inglés/código, ~3 en español)
     tokens_by_words = words * 1.3
     tokens_by_chars = chars / 3.6
     return max(1, int(math.ceil((tokens_by_words + tokens_by_chars) / 2)))
@@ -52,7 +51,16 @@ def calculate_costs(token_count: int, output_ratio: float = 0.3) -> dict:
     }
 
 if __name__ == "__main__":
-    sample_text = sys.stdin.read() if not sys.stdin.isatty() else "Ejemplo de texto para prueba de tokens y costes."
+    if len(sys.argv) > 1:
+        arg = sys.argv[1]
+        if os.path.isfile(arg):
+            with open(arg, "r", encoding="utf-8", errors="ignore") as f:
+                sample_text = f.read()
+        else:
+            sample_text = " ".join(sys.argv[1:])
+    else:
+        sample_text = "Texto base de demostración para cálculo de tokens y costes en modelos de inteligencia artificial."
+    
     tokens = estimate_tokens(sample_text)
     report = calculate_costs(tokens)
     print(json.dumps(report, indent=2))
