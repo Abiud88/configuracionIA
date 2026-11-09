@@ -11,8 +11,10 @@ configuracionIA/
 ├── .github/workflows/      # Validaciones automáticas (CI/CD)
 ├── skills/                 # Catálogo universal de habilidades operativas
 │   ├── templates/          # Plantilla oficial estándar (SKILL_TEMPLATE.md)
-│   ├── core/               # Razonamiento metacognitivo, control y anti-alucinaciones
+│   ├── humanization/       # Eliminación de tono robótico, clichés de IA y empatía
+│   ├── product-design/     # Diseño limpio (Clean UI), UX artesanal y Design Tokens
 │   ├── optimization/       # Ahorro de tokens, caché, poda de contexto y enrutamiento
+│   ├── core/               # Razonamiento metacognitivo, control y anti-alucinaciones
 │   ├── coding/             # Desarrollo de software, arquitectura, refactor y testing
 │   ├── devops/             # Git, terminal seguro, Docker y pipelines CI/CD
 │   ├── documentation/      # Documentación técnica, técnica Feynman y changelogs
@@ -29,7 +31,20 @@ configuracionIA/
 
 ## 📚 Catálogo Completo de Skills
 
-### ⚡ 1. Optimización de Recursos y Tokens (Optimization)
+### 🗣️ 1. Humanización de Resultados y Voz Natural (Humanization)
+| Skill | Descripción | Archivo |
+| :--- | :--- | :--- |
+| **Humanize AI Voice** | Erradica frases cliché de IA, monotonía rítmica y tono sintético para lograr una voz auténtica y humana. | [`SKILL.md`](skills/humanization/humanize-ai-voice/SKILL.md) |
+| **Executive Empathy Writer** | Redacción con alta inteligencia emocional, tacto y diplomacia para mensajes ejecutivos o delicados. | [`SKILL.md`](skills/humanization/executive-empathy-writer/SKILL.md) |
+
+### 🎨 2. Diseño Limpio y Artesanía de Producto (Clean UI / UX)
+| Skill | Descripción | Archivo |
+| :--- | :--- | :--- |
+| **Clean UI Designer** | Interfaces minimalistas, regla 60-30-10 de color, jerarquía visual y uso maestro del espacio negativo. | [`SKILL.md`](skills/product-design/clean-ui-designer/SKILL.md) |
+| **Product Craft & UX** | Experiencias de producto fluidas: empty states motivadores, skeleton loaders y micro-copy humano. | [`SKILL.md`](skills/product-design/product-craft-ux/SKILL.md) |
+| **Design System Tokens** | Arquitectura de Design Tokens en 3 niveles (globales, semánticos y componentes) para Figma y Tailwind. | [`SKILL.md`](skills/product-design/design-system-tokens/SKILL.md) |
+
+### ⚡ 3. Optimización de Recursos y Tokens (Optimization)
 | Skill | Descripción | Archivo |
 | :--- | :--- | :--- |
 | **Token Compressor** | Reduce el consumo de tokens de entrada entre un 40% y 70% mediante compresión semántica densa. | [`SKILL.md`](skills/optimization/token-compressor/SKILL.md) |
@@ -38,14 +53,14 @@ configuracionIA/
 | **Structured Output Optimizer** | Minimiza los tokens de salida (que son 3x a 5x más caros) diseñando formatos compactos y directos. | [`SKILL.md`](skills/optimization/structured-output-optimizer/SKILL.md) |
 | **Model Router & Cascade** | Enrutamiento inteligente entre modelos pequeños (Flash/Haiku) y pesados (Opus/o1) con fallbacks. | [`SKILL.md`](skills/optimization/model-router-cascade/SKILL.md) |
 
-### 🧠 2. Razonamiento y Control (Core)
+### 🧠 4. Razonamiento y Control (Core)
 | Skill | Descripción | Archivo |
 | :--- | :--- | :--- |
 | **First-Principles Reasoning** | Descompone problemas complejos en axiomas fundamentales antes de diseñar soluciones. | [`SKILL.md`](skills/core/first-principles-reasoning/SKILL.md) |
 | **Fact-Checker Skeptic** | Audita afirmaciones, versiones y referencias con escala de certeza epistémica para erradicar alucinaciones. | [`SKILL.md`](skills/core/fact-checker-skeptic/SKILL.md) |
 | **Decision Matrix Analyzer** | Evaluación numérica de tradeoffs, alternativas técnicas y matrices de decisión ponderadas. | [`SKILL.md`](skills/core/decision-matrix-analyzer/SKILL.md) |
 
-### 💻 3. Desarrollo de Software y Arquitectura (Coding)
+### 💻 5. Desarrollo de Software y Arquitectura (Coding)
 | Skill | Descripción | Archivo |
 | :--- | :--- | :--- |
 | **Code Reviewer** | Auditoría integral de código: fallos de lógica, seguridad, buenas prácticas y refactorización limpia. | [`SKILL.md`](skills/coding/code-reviewer/SKILL.md) |
@@ -56,7 +71,7 @@ configuracionIA/
 | **SQL Performance Optimizer** | Optimización de consultas SQL, análisis de planes de ejecución y recomendaciones de índices compuestos. | [`SKILL.md`](skills/coding/sql-performance-optimizer/SKILL.md) |
 | **Security Hardener (OWASP)** | Detección de brechas críticas (Inyecciones, IDOR, fugas de secretos) y sanitización defensiva. | [`SKILL.md`](skills/coding/security-hardener-owasp/SKILL.md) |
 
-### 🐙 4. DevOps, Git y Terminal
+### 🐙 6. DevOps, Git y Terminal
 | Skill | Descripción | Archivo |
 | :--- | :--- | :--- |
 | **Git Workflow Master** | Commits semánticos (Conventional Commits), plantillas de Pull Request y resolución de conflictos. | [`SKILL.md`](skills/devops/git-workflow-master/SKILL.md) |
@@ -64,14 +79,14 @@ configuracionIA/
 | **Docker Containerizer** | Multi-stage builds, imágenes ligeras (alpine/distroless), usuarios no-root y docker-compose. | [`SKILL.md`](skills/devops/docker-containerizer/SKILL.md) |
 | **CI/CD Pipeline Builder** | Flujos de automatización para GitHub Actions / GitLab CI con caché, linting y pruebas automáticas. | [`SKILL.md`](skills/devops/ci-cd-pipeline-builder/SKILL.md) |
 
-### 📝 5. Documentación y Pedagogía
+### 📝 7. Documentación y Pedagogía
 | Skill | Descripción | Archivo |
 | :--- | :--- | :--- |
 | **Tech Docs Writer** | Creación de READMEs de nivel profesional con diagramas Mermaid interactivos y guías de uso. | [`SKILL.md`](skills/documentation/tech-docs-writer/SKILL.md) |
 | **Feynman Explainer** | Explica conceptos altamente complejos mediante analogías cotidianas y eliminación de jerga técnica. | [`SKILL.md`](skills/documentation/feynman-explainer/SKILL.md) |
 | **Release Notes Generator** | Transforma commits o diffs en notas de lanzamiento bajo el estándar Keep a Changelog y SemVer. | [`SKILL.md`](skills/documentation/release-notes-generator/SKILL.md) |
 
-### 📊 6. Datos e Inteligencia Artificial
+### 📊 8. Datos e Inteligencia Artificial
 | Skill | Descripción | Archivo |
 | :--- | :--- | :--- |
 | **Data Analysis & EDA** | Análisis exploratorio con Pandas/Polars: detección de outliers, correlaciones y visualizaciones. | [`SKILL.md`](skills/ai-data/data-analysis-eda/SKILL.md) |
