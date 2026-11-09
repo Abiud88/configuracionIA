@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "summarize_git_diff",
+  "description": "Analiza parches de código o git diffs y produce un resumen numérico y simbólico de cambios por archivo.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "diff_text": {
+        "type": "string",
+        "description": "Texto del diff o parche unificado a analizar."
+      }
+    },
+    "required": ["diff_text"]
+  }
+}

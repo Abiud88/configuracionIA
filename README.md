@@ -33,10 +33,18 @@ configuracionIA/
 
 | Herramienta | Tipo | Descripción | Archivo |
 | :--- | :--- | :--- | :--- |
-| **Core MCP Server** | Servidor MCP | Expone herramientas de escaneo de secretos, tokens y compresión a clientes MCP. | [`core_mcp_server.py`](tools/mcp-servers/core_mcp_server.py) |
-| **Token & Cost Counter** | Script Python | Estimación precisa de BPE tokens y desglose de costes en USD para GPT-4o, Claude, Gemini y DeepSeek. | [`token_counter.py`](tools/scripts/token_counter.py) |
-| **Secret Scanner** | Script Python | Escáner de seguridad que detecta API Keys expuestas (OpenAI, AWS, GitHub, JWT, etc.). | [`secret_scanner.py`](tools/scripts/secret_scanner.py) |
+| **Core MCP Server** | Servidor MCP | Expone la suite completa de herramientas bajo el estándar Model Context Protocol. | [`core_mcp_server.py`](tools/mcp-servers/core_mcp_server.py) |
+| **Code & Log Anonymizer** | Script Python | Anonimiza PII sensible (emails, IPs, tarjetas, DNIs) antes de enviar datos al LLM. | [`code_anonymizer.py`](tools/scripts/code_anonymizer.py) |
+| **Codebase Packer** | Script Python | Empaqueta un repositorio en un único documento XML estructurado para contexto de IA. | [`codebase_packer.py`](tools/scripts/codebase_packer.py) |
+| **Secret Scanner** | Script Python | Escanea y enmascara API keys expuestas (OpenAI, AWS, GitHub, claves privadas). | [`secret_scanner.py`](tools/scripts/secret_scanner.py) |
+| **SQL Injection Detector**| Script Python | Detecta interpolaciones dinámicas y concatenaciones inseguras en consultas SQL. | [`sql_injection_detector.py`](tools/scripts/sql_injection_detector.py) |
+| **Safe HTTP Client** | Script Python | Peticiones HTTP seguras blindadas contra ataques SSRF y bloqueando IPs privadas. | [`http_client_safe.py`](tools/scripts/http_client_safe.py) |
+| **Web Cleaner** | Script Python | Convierte URLs y páginas HTML en Markdown semántico limpio con cero dependencias. | [`web_cleaner.py`](tools/scripts/web_cleaner.py) |
+| **Token & Cost Counter** | Script Python | Estimación precisa de tokens BPE y desglose en dólares para 7 modelos líderes. | [`token_counter.py`](tools/scripts/token_counter.py) |
 | **JSON to Markdown** | Script Python | Transforma arrays JSON en tablas Markdown compactas, ahorrando hasta un 60% de tokens. | [`json_to_markdown.py`](tools/scripts/json_to_markdown.py) |
+| **Mock Data Generator** | Script Python | Genera datasets sintéticos realistas en JSON (usuarios, emails, balances, ciudades). | [`mock_data_generator.py`](tools/scripts/mock_data_generator.py) |
+| **JSON Schema Validator**| Script Python | Valida estructuras JSON contra restricciones y tipos sin librerías externas. | [`schema_validator.py`](tools/scripts/schema_validator.py) |
+| **Diff Summarizer** | Script Python | Resume parches git diff cuantificando cambios, adiciones y funciones afectadas. | [`diff_summarizer.py`](tools/scripts/diff_summarizer.py) |
 | **System Info** | Script Python | Diagnóstico del entorno del sistema operativo, CPU y Python. | [`system_info.py`](tools/scripts/system_info.py) |
 
 ---
@@ -47,8 +55,14 @@ Compatibles con APIs de OpenAI, Gemini, Claude, Mistral y Ollama local:
 
 | Schema | Función | Propósito |
 | :--- | :--- | :--- |
+| [`code-anonymizer-tool.json`](schemas/code-anonymizer-tool.json) | `anonymize_code_and_logs` | Anonimiza PII y datos sensibles en logs o código. |
+| [`codebase-packer-tool.json`](schemas/codebase-packer-tool.json) | `pack_codebase_directory` | Empaqueta carpetas en XML estructurado para prompts. |
 | [`secret-scanner-tool.json`](schemas/secret-scanner-tool.json) | `scan_secrets_and_credentials` | Audita código y texto para prevenir fugas de credenciales. |
+| [`sql-injection-detector-tool.json`](schemas/sql-injection-detector-tool.json) | `detect_sql_injection` | Detecta consultas SQL concatenadas vulnerables a SQLi. |
+| [`safe-http-request-tool.json`](schemas/safe-http-request-tool.json) | `safe_http_request` | Realiza llamadas HTTP seguras con protección anti-SSRF. |
 | [`token-calculator-tool.json`](schemas/token-calculator-tool.json) | `calculate_token_cost` | Calcula costes de inferencia antes de procesar grandes prompts. |
+| [`mock-data-generator-tool.json`](schemas/mock-data-generator-tool.json) | `generate_mock_dataset` | Genera conjuntos de datos sintéticos realistas para tests. |
+| [`diff-summarizer-tool.json`](schemas/diff-summarizer-tool.json) | `summarize_git_diff` | Resume diffs de código extrayendo símbolos y métricas. |
 | [`database-query-tool.json`](schemas/database-query-tool.json) | `execute_readonly_sql` | Ejecuta consultas SQL SELECT seguras con límites de filas. |
 | [`web-scraper-tool.json`](schemas/web-scraper-tool.json) | `extract_web_markdown` | Convierte URLs en Markdown limpio sin publicidad ni scripts. |
 | [`weather-tool.json`](schemas/weather-tool.json) | `get_current_weather` | Ejemplo estándar de pronóstico meteorológico. |

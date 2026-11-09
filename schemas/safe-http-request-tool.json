@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "safe_http_request",
+  "description": "Realiza peticiones HTTP(S) blindadas contra ataques SSRF, bloqueando IPs privadas locales y servicios de metadatos de nube.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "url": {
+        "type": "string",
+        "description": "URL pública a consultar."
+      },
+      "method": {
+        "type": "string",
+        "enum": ["GET", "POST"],
+        "default": "GET"
+      },
+      "payload": {
+        "type": "string",
+        "description": "Cuerpo de la petición (para POST)."
+      }
+    },
+    "required": ["url"]
+  }
+}

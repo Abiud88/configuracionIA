@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "detect_sql_injection",
+  "description": "Escanea consultas SQL dinámicas o código fuente para detectar concatenaciones o interpolaciones inseguras vulnerables a SQLi.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "code_snippet": {
+        "type": "string",
+        "description": "El fragmento de código o consulta SQL a auditar."
+      }
+    },
+    "required": ["code_snippet"]
+  }
+}

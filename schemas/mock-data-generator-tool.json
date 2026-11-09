@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "generate_mock_dataset",
+  "description": "Genera conjuntos de datos sintéticos realistas en JSON para pruebas, simulando usuarios, correos, transacciones y fechas.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "count": {
+        "type": "integer",
+        "description": "Número de registros a generar.",
+        "default": 5
+      }
+    }
+  }
+}

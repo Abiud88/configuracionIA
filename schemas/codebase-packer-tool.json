@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "pack_codebase_directory",
+  "description": "Empaqueta un repositorio o directorio en un único documento XML estructurado ideal para inyectar en la ventana de contexto del LLM.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "directory_path": {
+        "type": "string",
+        "description": "Ruta relativa o absoluta del directorio a empaquetar."
+      },
+      "max_file_size_kb": {
+        "type": "integer",
+        "description": "Tamaño máximo en KB por archivo para omitir archivos pesados.",
+        "default": 200
+      }
+    },
+    "required": ["directory_path"]
+  }
+}

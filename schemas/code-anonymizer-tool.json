@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "anonymize_code_and_logs",
+  "description": "Anonimiza información sensible (PII) como emails, IPs, tarjetas de crédito y DNIs en código o logs antes de enviarlos a un LLM.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "text": {
+        "type": "string",
+        "description": "El texto, traza de log o fragmento de código que contiene información identificable."
+      }
+    },
+    "required": ["text"]
+  }
+}
