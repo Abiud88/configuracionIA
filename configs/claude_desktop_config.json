@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "system-diagnostics": {
+      "command": "python",
+      "args": [
+        "tools/scripts/system_info.py"
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "get_current_weather",
+  "description": "Obtiene la información meteorológica actual para una ubicación geográfica determinada.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "location": {
+        "type": "string",
+        "description": "El nombre de la ciudad y país, ej: Madrid, España o Buenos Aires, Argentina"
+      },
+      "unit": {
+        "type": "string",
+        "enum": ["celsius", "fahrenheit"],
+        "default": "celsius",
+        "description": "Unidad métrica de temperatura a devolver"
+      }
+    },
+    "required": ["location"]
+  }
+}
